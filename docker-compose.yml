@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  flashdb:
+    build:
+      platforms:
+        - linux/arm64/v8
+      context: .
+      dockerfile: Dockerfile
+    image: flashdb:0.1.0
