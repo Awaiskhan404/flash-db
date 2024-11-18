@@ -1,4 +1,4 @@
-mod in_memory_db;
+pub mod in_memory_db;
 use serde_json::Value;
 use std::time::Duration;
 use in_memory_db::InMemoryDB;
@@ -40,7 +40,9 @@ fn handle_client(mut stream: TcpStream, db: Arc<InMemoryDB>, auth_token: String)
         let _ = stream.write_all("Invalid authentication token.\n".as_bytes());
         return;
     }
+
     log::info!("Client {} authenticated successfully", client_addr);
+    let _ = stream.write_all("Authenticated successfully\n".as_bytes()); // Send success message
 
     // Process commands from the client
     loop {
@@ -74,7 +76,7 @@ fn handle_client(mut stream: TcpStream, db: Arc<InMemoryDB>, auth_token: String)
 ///
 /// # Returns
 /// A response string for the client, indicating the result of the command.
-fn process_command(command: &str, db: &Arc<InMemoryDB>) -> String {
+pub fn process_command(command: &str, db: &Arc<InMemoryDB>) -> String {
     let parts: Vec<&str> = command.trim().split_whitespace().collect();
     if parts.is_empty() {
         log::warn!("Empty command received");
@@ -149,6 +151,7 @@ fn process_command(command: &str, db: &Arc<InMemoryDB>) -> String {
 }
 
 /// Main function to initialize the server and handle incoming connections.
+#[allow(dead_code)]
 fn main() {
     env::set_var("RUST_LOG", "info"); // Set default log level to info
     env_logger::init(); // Initialize logging
