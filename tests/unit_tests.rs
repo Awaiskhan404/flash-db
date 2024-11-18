@@ -4,8 +4,8 @@ use std::sync::Arc;
 use std::time::Duration;
 
 // Import functions and modules to be tested
-use nanodb::in_memory_db::InMemoryDB;  // Adjust based on your project structure
-use nanodb::{process_command};         // Adjust based on your project structure
+use memdb::in_memory_db::InMemoryDB;  // Adjust based on your project structure
+use memdb::{process_command};         // Adjust based on your project structure
 
 /// Helper function to create a new shared instance of the database.
 fn setup_db() -> Arc<InMemoryDB> {

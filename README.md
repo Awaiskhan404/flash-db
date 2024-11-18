@@ -1,1 +1,1 @@
-NanoDB is a simple, in-memory key-value store server built with Rust. It supports basic set, get, delete, and expire commands, allowing JSON data to be stored with optional time-to-live (TTL) expiration. It also includes basic token-based authentication.
+MemDB is a simple, in-memory key-value store server built with Rust. It supports basic set, get, delete, and expire commands, allowing JSON data to be stored with optional time-to-live (TTL) expiration. It also includes basic token-based authentication.
