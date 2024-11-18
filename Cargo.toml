@@ -5,7 +5,7 @@ edition = "2021"
 authors = ["Awais khan <contact@awaiskhan.com.pk>"]
 repository = "https://github.com/codiux-net/nano-db"
 keywords = ["database", "key-value", "storage", "memory-db"]
-categories = ["database", "data-structures", "cache"]
+categories = ["database", "data-structures", "memory-db"]
 license = "MIT"
 description = "A simple key-value store in Rust"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
