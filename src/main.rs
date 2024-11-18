@@ -154,7 +154,7 @@ fn main() {
     env_logger::init(); // Initialize logging
 
     // Get the hardcoded token from the environment
-    let auth_token = env::var("AUTH_TOKEN").expect("AUTH_TOKEN must be set");
+    let auth_token = env::var("AUTH_TOKEN").unwrap_or_else(|_| "DEFAULT_AUTH_TOKEN".to_string());
 
     let db = Arc::new(InMemoryDB::new());
     db.start_expiration_thread(); // Start background expiration thread
