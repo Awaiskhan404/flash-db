@@ -6,7 +6,7 @@ authors = ["Awais khan <contact@awaiskhan.com.pk>"]
 repository = "https://github.com/codiux-net/nano-db"
 keywords = ["database", "key-value", "storage", "memory-db"]
 categories = ["database", "data-structures", "cache"]
-
+license = "MIT"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
