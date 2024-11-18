@@ -88,3 +88,52 @@ fn test_expire_command() {
     let response = process_command(&command, &db);
     assert!(response.contains("Key 'expire_key' not found or expired"));
 }
+
+
+#[test]
+fn test_set_get_int() {
+    let db = setup_db();
+    let key = "int_key";
+    let value = 42;
+
+    db.set(key.to_string(), value.to_string(), None); // Store integer as a string
+    let stored_value = db.get(key).expect("Value should be present");
+
+    assert_eq!(stored_value, value.to_string(), "Failed to retrieve integer value");
+}
+
+#[test]
+fn test_set_get_string() {
+    let db = setup_db();
+    let key = "string_key";
+    let value = "Hello, World!";
+
+    db.set(key.to_string(), value.to_string(), None);
+    let stored_value = db.get(key).expect("Value should be present");
+
+    assert_eq!(stored_value, value, "Failed to retrieve string value");
+}
+
+#[test]
+fn test_set_get_float() {
+    let db = setup_db();
+    let key = "float_key";
+    let value = 3.14159;
+
+    db.set(key.to_string(), value.to_string(), None); // Store float as a string
+    let stored_value = db.get(key).expect("Value should be present");
+
+    assert_eq!(stored_value, value.to_string(), "Failed to retrieve float value");
+}
+
+#[test]
+fn test_set_get_json() {
+    let db = setup_db();
+    let key = "json_key";
+    let value = json!({"name": "Alice", "age": 30});
+
+    db.set(key.to_string(), value.to_string(), None); // Store JSON as a string
+    let stored_value = db.get(key).expect("Value should be present");
+
+    assert_eq!(stored_value, value.to_string(), "Failed to retrieve JSON value");
+}
